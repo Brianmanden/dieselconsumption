@@ -3,3 +3,9 @@ TODO
 Look into:
 	- https://github.com/jsoma/tabletop
 	- https://github.com/okfn/recline.backend.gdocs
+	
+Code:
+	- average function (Km. per liter)
+		- sanitize input (check for null/empty, numbers only etc.)
+	- decide on how to post to Google Sheet and start coding :)
+	
