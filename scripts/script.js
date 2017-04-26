@@ -1,10 +1,9 @@
-const distance = $("#distance");
-const amount = $("#amount");
-const calculateBtn = $("#calculate");
-const average = $("#average");
+$("#calculateBtn").on('click', function(event){
+	event.preventDefault();
+	$("#average").val( $("#distance").val() / $("#amount").val() );
+});
 
-calculateBtn.on('click', function(e){
-	e.preventDefault();
-	const avg = distance.val() / amount.val();
-	average.val(avg);
+$("#submitBtn").submit(function( event ) {
+  alert( "Handler for .submit() called." );
+  event.preventDefault();
 });
