@@ -11,4 +11,9 @@ Code:
 			- HTML5 deals with this :)
 
 Sheet:
+	- fix timestamp to include time as well as date
+		- set it in Google Sheet
 	- fix wrong average (wtf is going on ?)
+		- find out which custom number format to use
+			- should have 4 digits
+			- should get correct input from JS

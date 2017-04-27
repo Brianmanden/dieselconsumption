@@ -1,5 +1,6 @@
 function setAverage(){
-	$("#average").val( ($("#distance").val() / $("#amount").val()).toFixed(8) );
+	$("#average").val( ($("#distance").val() / $("#amount").val()).toFixed(4) );
+	//$("#average").val( ($("#distance").val() / $("#amount").val()) );
 }
 
 $("#calculateBtn").on('click', function(event){
@@ -13,7 +14,7 @@ var request;
 // Bind to the submit event of our form
 $("#dieselForm").submit(function(event){
 	event.preventDefault();
-	setAverage();
+	//setAverage();
 	
     // Abort any pending request
     if (request) {
@@ -28,9 +29,6 @@ $("#dieselForm").submit(function(event){
     // Serialize the data in the form
     var serializedData = $form.serialize();
 	
-	// HERTIL !!!
-	console.dir(serializedData);
-
     // Let's disable the inputs for the duration of the Ajax request.
     // Note: we disable elements AFTER the form data has been serialized.
     // Disabled form elements will not be serialized.
@@ -46,11 +44,15 @@ $("#dieselForm").submit(function(event){
 
     // Callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
+        console.dir(serializedData);
+		
+		// Log a message to the console
+		if(0){
+			console.log("Hooray, it worked!");
+			console.log(response);
+			console.log(textStatus);
+			console.log(jqXHR);
+		}
     });
 
     // Callback handler that will be called on failure
