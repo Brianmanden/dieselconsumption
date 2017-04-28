@@ -14,7 +14,7 @@ var request;
 // Bind to the submit event of our form
 $("#dieselForm").submit(function(event){
 	event.preventDefault();
-	//setAverage();
+	setAverage();
 	
     // Abort any pending request
     if (request) {
