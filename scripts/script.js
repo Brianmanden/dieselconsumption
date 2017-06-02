@@ -1,9 +1,8 @@
 function setAverage(){
 	$("#average").val( ($("#distance").val() / $("#amount").val()).toFixed(4) );
-	//$("#average").val( ($("#distance").val() / $("#amount").val()) );
 }
 
-$("#calculateBtn").on('click', function(event){
+$("#avgBtn").on('click', function(event){
 	event.preventDefault();
 	setAverage();
 });
@@ -22,7 +21,8 @@ $("#dieselForm").submit(function(event){
     }
     // setup some local variables
     var $form = $(this);
-
+	var $button = $('#submitBtn');
+	
     // Let's select and cache all the fields
     var $inputs = $form.find("input");
 	
@@ -44,20 +44,35 @@ $("#dieselForm").submit(function(event){
 
     // Callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
-        console.dir(serializedData);
 		
-		// Log a message to the console
-		if(0){
-			console.log("Hooray, it worked!");
-			console.log(response);
-			console.log(textStatus);
-			console.log(jqXHR);
-		}
+		$button.html("Data indsendt!");
+		$button.removeClass('btn-primary');
+		$button.addClass('btn-success');
+		
+		setTimeout(function(){
+			$form[0].reset();
+			$button.html("Indsend data");
+			$button.removeClass('btn-success');
+			$button.addClass('btn-primary');
+		}, 2000);
+
     });
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
+
+		$button.html("Fejl - data ikke indsendt :(");
+		$button.removeClass('btn-primary');
+		$button.addClass('btn-danger');
+
+		setTimeout(function(){
+			//$form[0].reset();
+			$button.html("Indsend data");
+			$button.removeClass('btn-danger');
+			$button.addClass('btn-primary');
+		}, 2000);
+		
+		// Log the error to the console
         console.error(
             "The following error occurred: "+
             textStatus, errorThrown
@@ -72,7 +87,3 @@ $("#dieselForm").submit(function(event){
     });
 	
 });
-
-
-
-
