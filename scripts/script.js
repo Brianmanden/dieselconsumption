@@ -33,6 +33,7 @@ $("#dieselForm").submit(function(event){
     // Note: we disable elements AFTER the form data has been serialized.
     // Disabled form elements will not be serialized.
     $inputs.prop("disabled", true);
+    $button.html("Sender data...");
 
     // Fire off the request to /form.php
     request = $.ajax({
